@@ -76,81 +76,96 @@ string b16b10(string cn)
 
 void b10b2(string cn)
 {
-    int p = 1;
-    list<int> v;
-    long long int n = stoi(cn);
-    while (n)
+    if (cn == "0")
+        cout << 0;
+    else
     {
-        v.push_front(n % 2);
-        n /= 2;
+        int p = 1;
+        list<int> v;
+        long long int n = stoi(cn);
+        while (n)
+        {
+            v.push_front(n % 2);
+            n /= 2;
+        }
+        for (auto i: v)
+            cout << i;
     }
-    for (auto i: v)
-        cout << i;
 }
 
 void b10b8(string cn)
 {
-    int p = 1;
-    list<int> v;
-    long long int n = stoi(cn);
-    while (n)
+    if (cn == "0")
+        cout << 0;
+    else
     {
-        v.push_front(n % 8);
-        n /= 8;
+        int p = 1;
+        list<int> v;
+        long long int n = stoi(cn);
+        while (n)
+        {
+            v.push_front(n % 8);
+            n /= 8;
+        }
+        for (auto i: v)
+            cout << i;
     }
-    for (auto i: v)
-        cout << i;
 }
 
 void b10b16(string cn)
 {
-    int p = 1;
-    list<string> v;
-    long long int n = stoi(cn);
-    while (n)
+    if (cn == "0")
+        cout << 0;
+    else
     {
-        switch (n % 16)
+        int p = 1;
+        list<string> v;
+        long long int n = stoi(cn);
+        while (n)
         {
-            case 10:
+            switch (n % 16)
             {
-                v.push_front("A");
-                break;
+                case 10:
+                {
+                    v.push_front("A");
+                    break;
+                }
+                case 11:
+                {
+                    v.push_front("B");
+                    break;
+                }
+                case 12:
+                {
+                    v.push_front("C");
+                    break;
+                }
+                case 13:
+                {
+                    v.push_front("D");
+                    break;
+                }
+                case 14:
+                {
+                    v.push_front("E");
+                    break;
+                }
+                case 15:
+                {
+                    v.push_front("F");
+                    break;
+                }
+                default:
+                {
+                    v.push_front(to_string(n % 16));
+                    break;
+                }
             }
-            case 11:
-            {
-                v.push_front("B");
-                break;
-            }
-            case 12:
-            {
-                v.push_front("C");
-                break;
-            }
-            case 13:
-            {
-                v.push_front("D");
-                break;
-            }
-            case 14:
-            {
-                v.push_front("E");
-                break;
-            }
-            case 15:
-            {
-                v.push_front("F");
-                break;
-            }
-            default:
-            {
-                v.push_front(to_string(n % 16));
-                break;
-            }
+            n /= 16;
         }
-        n /= 16;
+        for (auto i: v)
+            cout << i;
     }
-    for (auto i: v)
-        cout << i;
 }
 
 int main()
